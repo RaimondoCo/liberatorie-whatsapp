@@ -1,0 +1,212 @@
+LIBERATORIE FOTO E VIDEO - ISTRUZIONI PASSO PER PASSO
+====================================================
+
+Questo programma legge i voti di un sondaggio WhatsApp e crea:
+
+- un PDF per la scuola, con nome del bambino, chi risponde e voto;
+- un PDF per la chat dei genitori, con i soli conteggi;
+- un file di testo con i messaggi da copiare.
+
+Non invia messaggi da solo. Non entra in WhatsApp: legge gli screenshot
+che scegli tu. Funziona sul tuo computer, senza caricare le immagini online.
+
+
+PASSO 1 - METTI LA CARTELLA NEL POSTO GIUSTO
+-------------------------------------------
+
+Se hai ricevuto Liberatorie-da-condividere.zip, scaricalo prima sul computer.
+Estrai lo ZIP. Tieni tutti i file estratti insieme nella stessa cartella.
+
+La cartella deve essere LOCALE e non sincronizzata. Non avviare il programma
+nella cartella Dropbox, OneDrive o iCloud. I nomi dei bambini, le risposte al
+sondaggio e la firma sono dati da tenere riservati. Il programma blocca
+l'avvio se rileva una di queste cartelle.
+
+Sul Mac: apri Finder, premi Maiuscole+Comando+H per andare alla tua cartella
+personale. Crea lì una cartella chiamata Liberatorie-classe e mettici dentro
+i file estratti. Evita Scrivania e Documenti se il Mac li sincronizza con
+iCloud.
+
+Su Windows: premi Windows+R, scrivi %USERPROFILE% e premi Invio. Nella
+finestra che si apre crea una cartella Liberatorie-classe e mettici dentro
+i file estratti. Evita Scrivania e Documenti se sono dentro OneDrive.
+
+Su Linux: usa una cartella Liberatorie-classe nella tua cartella personale.
+
+
+PASSO 2 - COMPILA L'ELENCO DEI BAMBINI
+--------------------------------------
+
+Nella cartella ci sono tre versioni dello stesso elenco di ESEMPIO:
+
+  01-ROSTER.xlsx   se usi Excel
+  01-ROSTER.ods    se usi LibreOffice o OpenOffice
+  01-ROSTER.md     se usi un editor di testo
+
+Scegline UNA. Sostituisci tutte le tre righe di esempio con i bambini veri.
+Poi sposta gli altri due file fuori dalla cartella. Il programma si ferma
+se trova più elenchi o righe di esempio: serve a evitare documenti sbagliati.
+
+Le quattro colonne, in quest'ordine, sono:
+
+  NUMERO     1, 2, 3... Un numero diverso per ogni bambino.
+  BAMBINO    Cognome e nome dall'elenco ufficiale della scuola.
+  GENITORE   Nome di chi risponde nel gruppo WhatsApp. Se non lo sai,
+             puoi scrivere "mamma" o "papà". Accanto a te scrivi (tu).
+  NOTE       Solo per te; non sono stampate nei PDF. Puoi lasciarle vuote.
+
+Controlla che il numero totale di bambini coincida con l'elenco ufficiale.
+Non usare la lista dei partecipanti alla chat per decidere quanti sono.
+
+Se usi il file .md, aprilo con Blocco note o TextEdit in modalità testo
+semplice. Cambia le righe tra i caratteri | senza cancellare questi segni.
+Salva mantenendo il nome esatto 01-ROSTER.md, senza aggiungere .txt.
+
+
+PASSO 3 - AVVIA IL PROGRAMMA
+----------------------------
+
+Windows: doppio clic su Liberatoria.bat.
+Mac: doppio clic su Liberatoria.command.
+Linux: apri un Terminale nella cartella e scrivi ./Liberatoria.sh.
+
+La prima volta serve una connessione a internet: il programma installa
+ReportLab, che serve a creare i PDF. Sul Mac prova a installare anche
+Vision, che legge gli screenshot. Su Windows e Linux serve Tesseract OCR:
+vedi INSTALLARE OCR qui sotto. L'inserimento a mano è solo un ripiego.
+
+Se sul Mac compare un avviso di sicurezza, fai clic destro su
+Liberatoria.command, scegli Apri e conferma. Se manca Python, apri il
+Terminale, scrivi python3 e segui l'eventuale richiesta del Mac.
+
+Se su Windows manca Python, installa Python 3 dal Microsoft Store. In
+alternativa scaricalo da python.org: durante l'installazione seleziona
+"Add python.exe to PATH". Poi chiudi e riapri Liberatoria.bat.
+
+Se il programma dice che non trova l'elenco, torna al passo 2. Se dice
+che la cartella è nel cloud, torna al passo 1.
+
+
+PASSO 4 - INSERISCI I DATI DELLA CLASSE
+---------------------------------------
+
+Al primo avvio il programma ti chiede scuola, istituto, anno, sezione,
+il tuo nome, se sei madre o padre, il nome di tuo figlio, la data di
+elezione e la città. Scrive le risposte in dati-classe.txt. Se sbagli,
+apri quel file con un editor di testo, correggi la riga e salva.
+
+Puoi anche indicare un file PNG con l'immagine della TUA firma, conservato
+nella stessa cartella. Se non lo hai, premi Invio senza scrivere nulla.
+Il PDF per la scuola avrà uno spazio per firmare a penna o con uno
+strumento di firma sul telefono/computer. Un'immagine della firma NON è
+una firma digitale del PDF. Il programma non raccoglie le firme dei genitori.
+
+Tieni riservata l'immagine della firma. Non inserirla nello ZIP che passi
+ad altre persone.
+
+
+INSTALLARE OCR - UNA VOLTA SOLA
+--------------------------------
+
+OCR significa lettura automatica del testo nelle immagini. È necessario
+per partire dagli screenshot. Il programma legge le immagini sul computer.
+
+Mac: al primo avvio Liberatoria.command prova a installare Vision da solo.
+Se non ci riesce e il programma dice "manca OCR", puoi installare Tesseract.
+Se hai Homebrew, apri Terminale e scrivi: brew install tesseract
+Se non hai Homebrew, chiedi aiuto per questa installazione; poi riapri
+Liberatoria.command. Il programma trova Tesseract automaticamente.
+
+Windows: installa Tesseract OCR una volta. La documentazione ufficiale
+indica l'installer dell'Università di Mannheim:
+  https://tesseract-ocr.github.io/tessdoc/Installation.html
+Apri la sezione Windows, segui il link "Tesseract at UB Mannheim", scarica
+l'installer per Windows 64 bit e installalo lasciando la cartella proposta.
+Poi chiudi e riapri Liberatoria.bat. Non serve configurare un percorso.
+
+Linux (Ubuntu/Debian): apri il Terminale e scrivi:
+  sudo apt install tesseract-ocr
+Poi riapri Liberatoria.sh.
+
+
+PASSO 5 - SCEGLI GLI SCREENSHOT DEL SONDAGGIO
+---------------------------------------------
+
+Apri WhatsApp e fai gli screenshot del sondaggio. Per ogni opzione (SÌ,
+NO, ASTENUTO) fai in modo che si vedano tutti i nomi di chi ha votato.
+Se la lista è lunga, fai più screenshot scorrendo. È utile che si vedano
+anche il nome dell'opzione, il conteggio e l'orario accanto a ogni nome.
+Se selezioni anche la schermata riassuntiva con “See all”, il programma
+ne usa i conteggi ma legge i nomi solo dalle schermate “Vedi voti”.
+
+Quando avvii il programma, scegli gli screenshot nella finestra che si
+apre. Puoi selezionarne più di uno. Se la finestra non si apre, il
+programma mostra le immagini recenti: scrivi i numeri corrispondenti,
+oppure trascina i file nella finestra del programma.
+
+Se uno screenshot mostra i nomi ma non l'etichetta SÌ/NO/ASTENUTO,
+il programma ti chiede quale opzione contiene. Rispondi guardando il
+sondaggio. È meglio fare screenshot con UNA SOLA opzione per immagine
+quando l'etichetta non è visibile.
+
+L'OCR prova a riconoscere i nomi e ad abbinarli ai bambini dell'elenco.
+Se un nome non è riconosciuto, ti chiede il numero del bambino; puoi
+scrivere 0 se non appartiene alla sezione. Poi mostra tutti gli esiti.
+Per correggere una riga scrivi, per esempio, "3 SI", "3 NO",
+"3 ASTENUTO" oppure "3 MANCA". Premi Invio solo quando la tabella
+è giusta. Chi non è indicato resta NON PERVENUTO.
+
+Infine controlla la tabella completa riga per riga. Scrivi CONFERMO
+solo se corrisponde al sondaggio. Il programma non crea PDF prima
+di questa conferma.
+
+Se l'OCR non riesce a leggere nessun nome, rifai gli screenshot.
+Solo se non puoi usare l'OCR, puoi avviare il programma con --mano
+da un Terminale e inserire i voti con i numeri.
+
+
+PASSO 6 - EVENTO, DATA E FILE CREATI
+------------------------------------
+
+Scrivi il nome dell'evento e la data, per esempio 12/11/2026. Se non
+conosci ancora la data, premi Invio: i PDF saranno marcati BOZZA e non
+vanno inviati. Quando sai la data, rilancia il programma e rigenerali.
+
+Per esempio, per "Castagnata" nella cartella troverai:
+
+  Liberatoria-Castagnata-Scuola.pdf
+      Contiene i nomi dei bambini e gli esiti. Destinato solo alla scuola.
+      È il documento che devi firmare tu, se non hai inserito la firma.
+
+  Riepilogo-Castagnata-Chat.pdf
+      Contiene solo i conteggi. È il file da allegare alla chat.
+
+  Messaggi-Castagnata.txt
+      Contiene l'email per la scuola e i messaggi per chat e maestra.
+      All'inizio indica se devi ancora firmare o inserire la data.
+
+Apri ENTRAMBI i PDF. Controlla nome dell'evento, data, totale dei bambini,
+voti e destinatari. Non allegare alla chat il PDF che finisce con
+-Scuola.pdf: contiene informazioni individuali.
+
+
+SE DEVI PASSARE IL PROGRAMMA A UN'ALTRA RAPPRESENTANTE
+-------------------------------------------------------
+
+Passa lo ZIP originale, che contiene solo i tre bambini di esempio.
+Non includere il tuo elenco compilato, dati-classe.txt, la tua firma,
+i PDF creati o gli screenshot del sondaggio. L'altra persona compilerà
+i propri dati sul proprio computer, in una cartella locale.
+
+
+PROBLEMI COMUNI
+--------------
+
+"Trovo più elenchi": lascia nella cartella soltanto il formato compilato.
+"L'elenco contiene ancora le righe di esempio": sostituisci tutte e tre.
+"Questa cartella si trova in un servizio cloud": sposta i file come nel passo 1.
+"Non riesco a leggere la firma": controlla che sia un'immagine PNG valida.
+"La data non esiste": controlla giorno, mese e anno.
+"Non ho letto nessun votante": rifai screenshot più nitidi e completi.
+"Non trovo un programma OCR": segui la sezione INSTALLARE OCR.
+"Installazione fallita": verifica la connessione a internet e riprova.

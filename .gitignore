@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+dati-classe.txt
+firma*.png
+Liberatoria-*.pdf
+Riepilogo-*.pdf
+Messaggi-*.txt
+*.png
+*.jpg
+*.jpeg
+.DS_Store

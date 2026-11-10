@@ -1,0 +1,42 @@
+LIBERATORIE FOTO E VIDEO - GUIDA VELOCE
+======================================
+
+PRIMA DI COMINCIARE
+
+1. Copia lo ZIP sul tuo computer e aprilo in una cartella locale NON sincronizzata.
+   Non lavorare dentro Dropbox, OneDrive o iCloud: lì finirebbero anche i nomi
+   dei bambini, i voti e l'eventuale immagine della tua firma.
+
+2. Scegli UN SOLO elenco: 01-ROSTER.xlsx (Excel), 01-ROSTER.ods
+   (LibreOffice) oppure 01-ROSTER.md (testo). Sostituisci TUTTE le tre righe
+   di esempio con i bambini della tua sezione. Sposta gli altri due elenchi
+   fuori dalla cartella. Usa i nomi dell'elenco ufficiale della scuola.
+
+3. Avvia: Windows = doppio clic su Liberatoria.bat;
+   Mac = doppio clic su Liberatoria.command;
+   Linux = ./Liberatoria.sh dal Terminale.
+   Al primo avvio serve internet per installare il programma che crea i PDF.
+
+4. Inserisci i dati della classe. Scegli gli SCREENSHOT del sondaggio nella
+   finestra che si apre. Se in uno screenshot non si vede se sono voti SI,
+   NO o ASTENUTO, il programma te lo chiede. Controlla e correggi la
+   tabella finale; solo allora scrivi CONFERMO. Se il programma dice che
+   manca OCR, segui la sezione INSTALLARE OCR del LEGGIMI.txt.
+
+5. Troverai TRE file:
+   Liberatoria-NOME-Scuola.pdf = contiene nomi ed esiti, SOLO per la scuola.
+   Riepilogo-NOME-Chat.pdf   = contiene solo i conteggi, per la chat.
+   Messaggi-NOME.txt        = testi da copiare, con le cose da fare prima
+                               dell'invio.
+
+PRIMA DI INVIARE
+
+- Se sul PDF per la scuola leggi "Firma da apporre", devi firmarlo tu.
+  Il programma non raccoglie le firme dei genitori e non crea una firma
+  digitale. Puoi inserire un'immagine PNG della tua firma, se vuoi.
+- Se un PDF dice BOZZA, manca la data dell'evento: rigeneralo con la data.
+- Controlla nomi, voti, data, evento e conteggi su ENTRAMBI i PDF.
+- Alla chat allega SOLO il file che finisce con -Chat.pdf.
+- Alla scuola invia il file che finisce con -Scuola.pdf, dopo averlo firmato.
+
+Per istruzioni passo per passo e problemi comuni, apri LEGGIMI.txt.
